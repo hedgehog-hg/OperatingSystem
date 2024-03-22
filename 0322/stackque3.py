@@ -5,8 +5,10 @@ def sol(s) :
         if bracket == '(':
             stk.append(bracket)
         else:
-            if not stk : return False
-            stk.pop()
+            try :
+                stk.pop()
+            except IndexError :
+                return False
     return not stk
 
 # input data
