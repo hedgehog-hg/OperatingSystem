@@ -1,19 +1,31 @@
+import heapq
 def solution(operations) :
-    que = []
+    max_heap = []
+    min_heap = []
     for operation in operations :
-        o = operation.split()
-        if o[0] == "I" :
-            que.append(int(o[1]))
+        if operation == 'D 1' and max_heap:
+            heapq.heappop(max_heap)
+            if not max_heap :
+                max_heap = []
+                min_heap = []
+        elif operation == 'D -1' and min_heap:
+            heapq.heappop(min_heap)
+            if not min_heap :
+                max_heap = []
+                min_heap = []
         else :
-            if que and o[1] == '1' : # delete maximum
-                que.pop(que.index(max(que)))
-            elif que and o[1] == '-1' : # delete minimum
-                que.pop(que.index(min(que)))
-
-    if not que : 
+            n = int(operation.split()[1])
+            heapq.heappush(max_heap,-n)
+            heapq.heappush(min_heap,n)
+    if not min_heap:
         return [0,0]
-    return [max(que),min(que)]
+    heap = []
+    for n in max_heap :
+        heap.append(-n)
+    heap = list(set(heap)&set(min_heap)) # intersection -> 삭제 되지 않은 원소임을 보장
+
+    return [max(heap),min(heap)]
 
 #input data
-operations = ["I -45", "I 653", "D 1", "I -642", "I 45", "I 97", "D 1", "D -1", "I 333"]
+operations =["I 16", "I -5643", "D -1", "D 1", "D 1", "I 123", "D -1"]
 print(solution(operations))
