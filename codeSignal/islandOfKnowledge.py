@@ -18,6 +18,25 @@ def isIPv4Address(inputString):
         if int(add) < 0 or int(add) > 255 : return False
     return True
 
+import re
+def isIPv4(inputString) :
+    address = inputString.split('.')
+    leadingZero = re.compile('0\d+')
+    return len(address) == 4 and all(n.isdigit() and not leadingZero.search(n) and 0 <= int(n) <= 255 for n in address)
+
+def avoidObstacles(inputArray):
+    jump = 2
+    while not all(n%jump for n in inputArray) : 
+        jump +=1
+    return jump
+
+def boxBlur(image):
+    return 
 #print(areEquallyStrong(10,15,15,10))
 #print(arrayMaximalAdjacentDifference([2,4,1,0]))
-print(isIPv4Address("1a.255.254.0"))
+#print(isIPv4("1.255.254.00"))
+#print(avoidObstacles([1,10]))
+print(boxBlur([[7, 4, 0, 1], 
+         [5, 6, 2, 2], 
+         [6, 10, 7, 8], 
+         [1, 4, 2, 0]]))
