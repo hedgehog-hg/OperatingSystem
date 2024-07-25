@@ -42,17 +42,40 @@ def boxBlur(image):
             sum_arr.append(math.floor(np.sum(list(image[i+n][j:j+3] for n in range(3)))/9))    
         res.append(sum_arr)
     return res
-# i = 0 , j = 0,1 -> [0][0:3][1][2]
+
+def minesweeper(matrix):
+    # 자신 제외 주변에 true = 지뢰 있으면 +1
+    # leftup up rightup
+    # left   idx right
+    # leftdown down rightdown
+    res = []
+    for i in range(len(matrix)):
+        arr = []
+        for j in range(len(matrix[i])):
+            left = leftOrup(j-1)
+            right= rightorDown(j+1,len(matrix[i]))
+            up = leftOrup(i-1)
+            down = rightorDown(i+1,len(matrix))
+            arr.append(sum([left and up and matrix[i-1][j-1], up and matrix[i-1][j], right and up and matrix[i-1][j+1],
+            left and matrix[i][j-1], right and matrix[i][j+1],
+            left and down and matrix[i+1][j-1], down and matrix[i+1][j], right and down and matrix[i+1][j+1]]))
+        res.append(arr)
+    return res
+def leftOrup(idx) :
+    return True if idx>=0 else False
+def rightorDown(idx,size) :
+    return True if idx < size else False
+
+
+
 #print(areEquallyStrong(10,15,15,10))
 #print(arrayMaximalAdjacentDifference([2,4,1,0]))
 #print(isIPv4("1.255.254.00"))
 #print(avoidObstacles([1,10]))
-print(boxBlur([[36,0,18,9], 
- [27,54,9,0], 
- [81,63,72,45]]
-))
-
-# res
-#   0  1 
-# 0 00 01  image[0,0] [0,1] [0,2] [1,0] [1,1] [1,2] [2,0]
-# 1 10 11
+# print(boxBlur([[36,0,18,9], 
+#  [27,54,9,0], 
+#  [81,63,72,45]]
+# ))
+print(minesweeper([[True, False, False],
+          [False, True, False],
+          [False, False, False]]))
