@@ -30,13 +30,29 @@ def avoidObstacles(inputArray):
         jump +=1
     return jump
 
+import numpy as np, math
 def boxBlur(image):
-    return 
+    # n * m matrix
+    n = len(image)-2
+    m = len(image[0])-2
+    res=[]
+    for i in range(n) :
+        sum_arr = []
+        for j in range(m):
+            sum_arr.append(math.floor(np.sum(list(image[i+n][j:j+3] for n in range(3)))/9))    
+        res.append(sum_arr)
+    return res
+# i = 0 , j = 0,1 -> [0][0:3][1][2]
 #print(areEquallyStrong(10,15,15,10))
 #print(arrayMaximalAdjacentDifference([2,4,1,0]))
 #print(isIPv4("1.255.254.00"))
 #print(avoidObstacles([1,10]))
-print(boxBlur([[7, 4, 0, 1], 
-         [5, 6, 2, 2], 
-         [6, 10, 7, 8], 
-         [1, 4, 2, 0]]))
+print(boxBlur([[36,0,18,9], 
+ [27,54,9,0], 
+ [81,63,72,45]]
+))
+
+# res
+#   0  1 
+# 0 00 01  image[0,0] [0,1] [0,2] [1,0] [1,1] [1,2] [2,0]
+# 1 10 11
