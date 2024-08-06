@@ -27,7 +27,15 @@ def digitDegree(n):
         n = sum(int(s) for s in str(n))
         res += 1
     return res
-print(digitDegree(91))
+def changeToNum(chess):
+    return ord(chess[0])+int(chess[1])
+def bishopAndPawn(bishop,pawn):
+    b = changeToNum(bishop)
+    p = changeToNum(pawn)
+    diff = int(pawn[1]) - int(bishop[1])
+    return b == p or p == b + 2*diff
+print(bishopAndPawn('h1','h3'))
+#print(digitDegree(91))
 #print(longestDigitsPrefix("the output is 42"))
 #print(knapsackLight(10,5,6,4,9))
 #print(growingPlant(100,10,910))
