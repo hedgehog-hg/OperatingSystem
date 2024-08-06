@@ -15,5 +15,13 @@ def knapsackLight(v1,w1,v2,w2,maxW):
             maxW -= item[1]
     return res
 
+def longestDigitsPrefix(inputString): 
+    # not find the longest prefix each word.. just first one
+    for idx, c in enumerate(inputString):
+        if not c.isnumeric():
+            return inputString[:idx]
+
+
+print(longestDigitsPrefix("the output is 42"))
 #print(knapsackLight(10,5,6,4,9))
 #print(growingPlant(100,10,910))
