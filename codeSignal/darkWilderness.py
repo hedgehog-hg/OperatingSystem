@@ -21,7 +21,13 @@ def longestDigitsPrefix(inputString):
         if not c.isnumeric():
             return inputString[:idx]
 
-
-print(longestDigitsPrefix("the output is 42"))
+def digitDegree(n):
+    res = 0
+    while n >= 10 :
+        n = sum(int(s) for s in str(n))
+        res += 1
+    return res
+print(digitDegree(91))
+#print(longestDigitsPrefix("the output is 42"))
 #print(knapsackLight(10,5,6,4,9))
 #print(growingPlant(100,10,910))
