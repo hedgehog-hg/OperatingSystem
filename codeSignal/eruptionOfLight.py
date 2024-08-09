@@ -8,5 +8,10 @@ def isBeautifulStirng(inputString) :
         cnt = n_cnt
     return True
 
+def findEmailDomain(address):
+    at= [idx for idx, x in enumerate(address) if x == '@']
 
-print(isBeautifulStirng('zaa'))
+    return address[at[-1]+1:]
+
+print(findEmailDomain("\"very.unusual.@.unusual.com\"@usual.com"))
+#print(isBeautifulStirng('zaa'))
