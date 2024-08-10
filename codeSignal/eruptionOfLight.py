@@ -33,7 +33,15 @@ def electionsWinnders(votes,k):
     cnt = sum(vote+k>m for vote in votes)
     if not cnt and votes.count(m) == 1 : cnt +=1
     return cnt
-print(electionsWinnders([5,1,3,4,1],0))
+
+import re
+def isMAC48Address(inputString):
+    reg = r'[A-F0-9]{2}[-][A-F0-9]{2}[-][A-F0-9]{2}[-][A-F0-9]{2}[-][A-F0-9]{2}[-][A-F0-9]{2}'
+    if re.fullmatch(reg,inputString) : return True
+    return False
+
+print(isMAC48Address("00-1B-63-84-45-E6"))
+#print(electionsWinnders([5,1,3,4,1],0))
 #print(buildPalindrome('abc'))
 #print(findEmailDomain("\"very.unusual.@.unusual.com\"@usual.com"))
 #print(isBeautifulStirng('zaa'))
