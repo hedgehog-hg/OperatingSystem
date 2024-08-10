@@ -28,6 +28,12 @@ def checkPalindrome(str):
         l-=1
     return True
 
-print(buildPalindrome('abc'))
+def electionsWinnders(votes,k):
+    m = max(votes)
+    cnt = sum(vote+k>m for vote in votes)
+    if not cnt and votes.count(m) == 1 : cnt +=1
+    return cnt
+print(electionsWinnders([5,1,3,4,1],0))
+#print(buildPalindrome('abc'))
 #print(findEmailDomain("\"very.unusual.@.unusual.com\"@usual.com"))
 #print(isBeautifulStirng('zaa'))
