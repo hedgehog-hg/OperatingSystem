@@ -16,5 +16,16 @@ def lineEncoding(s):
     if cnt > 1 : res += str(cnt)
     return res + prv
 
-print(lineEncoding('aabbbc'))
+def chessKnight(cell):
+    a = ord(cell[0])
+    n = int(cell[1])
+    canGo = [ [a-2,n-1],[a-2,n+1],[a-1,n-2],[a-1,n+2],[a+1,n+2],[a+1,n-2],[a+2,n+1],[a+2,n-1]]
+    return sum(checkValidAlpha(chr(g[0])) and checkValidNum(g[1]) for g in canGo)
+def checkValidAlpha(x) :
+    return 'a' <= x <= 'h'
+def checkValidNum(n) :
+    return 0 < n < 9
+
+print(chessKnight('a1'))
+#print(lineEncoding('aabbbc'))
 #print(isDigit('0'))
