@@ -26,6 +26,14 @@ def checkValidAlpha(x) :
 def checkValidNum(n) :
     return 0 < n < 9
 
-print(chessKnight('a1'))
+def deleteDigit(n):
+    st = str(n)
+    return int(max(st[:i] + st[i+1:] for i in range(len(st))))
+
+
+
+
+print(deleteDigit(152))
+#print(chessKnight('a1'))
 #print(lineEncoding('aabbbc'))
 #print(isDigit('0'))
