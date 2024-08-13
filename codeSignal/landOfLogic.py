@@ -27,11 +27,25 @@ def differentSquares(matrix):
             res.append(''.join(str(x) for x in square[i:i+2,j:j+2]))
     return len(set(res))
 
-print(differentSquares([[1, 2, 1],
-          [2, 2, 2],
-          [2, 2, 2],
-          [1, 2, 3],
-          [2, 2, 1]]))
+def digitsProduct(product):
+    if product == 0:
+        return 10
+    res = []
+    while product > 1 :
+        for i in range(9,1,-1):
+            if product%i == 0:
+                res.append(i)
+                product/=i
+                break
+        else : return -1
+    return ''.join(sorted(res))
+
+print(digitsProduct(450))
+# print(differentSquares([[1, 2, 1],
+#           [2, 2, 2],
+#           [2, 2, 2],
+#           [1, 2, 3],
+#           [2, 2, 1]]))
 #print(sumUpNumbers('three (3) is not 4'))
 #print(validTime("13:58"))
 #print(longestWord('Ready'))
