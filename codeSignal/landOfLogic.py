@@ -57,12 +57,15 @@ def fileNaming(names):
         else :
             res.append(names[i])
     return res
-
-print(fileNaming(["doc", 
- "doc", 
- "image", 
- "doc(1)", 
- "doc"]))
+def messageFromBinaryCode(code):
+    return ''.join(chr(int(code[i:i+8],2)) for i in range(0,len(code),8))
+sample = "010010000110010101101100011011000110111100100001"
+print(messageFromBinaryCode(sample))
+# print(fileNaming(["doc", 
+#  "doc", 
+#  "image", 
+#  "doc(1)", 
+#  "doc"]))
 #print(digitsProduct(450))
 # print(differentSquares([[1, 2, 1],
 #           [2, 2, 2],
