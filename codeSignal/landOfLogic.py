@@ -59,8 +59,24 @@ def fileNaming(names):
     return res
 def messageFromBinaryCode(code):
     return ''.join(chr(int(code[i:i+8],2)) for i in range(0,len(code),8))
-sample = "010010000110010101101100011011000110111100100001"
-print(messageFromBinaryCode(sample))
+def spiralNumbers(n):
+    times = sorted([n] + [i for i in range(1,n)]*2,reverse=True)
+    d = [(0,1),(1,0),(0,-1),(-1,0)]
+    res =[[0 for _ in range(n)] for _ in range(n) ]
+    k=1
+    i=idx=0
+    j =-1
+    for time in times :
+        for _ in range(time):
+            i,j = i+d[idx][0], j+d[idx][1]
+            res[i][j] = k
+            k+=1
+        idx = (idx+1)%4
+    return res
+
+print(spiralNumbers(5))
+#sample = "010010000110010101101100011011000110111100100001"
+#print(messageFromBinaryCode(sample))
 # print(fileNaming(["doc", 
 #  "doc", 
 #  "image", 
