@@ -11,3 +11,7 @@ def maxMultiple(divisor,bound):
 def circleOfNumbers(n,firstNumber):
     mid = n//2
     return mid + firstNumber if firstNumber<mid else firstNumber%mid
+def lateRide(n):
+    h = n//60
+    m = n-h*60
+    return h//10 + h %10 + m//10 + m%10
