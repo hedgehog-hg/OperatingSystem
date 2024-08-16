@@ -15,3 +15,8 @@ def lateRide(n):
     h = n//60
     m = n-h*60
     return h//10 + h %10 + m//10 + m%10
+def phoneCall(min1,min2_10,min11,s):
+    if s >= min1 + 9*min2_10 : return 10 + (s-min1-9*min2_10)//min11
+    elif s >= min1 : return 1 +(s-min1)//min2_10
+    else : return 0
+print(phoneCall(10,1,2,22))
