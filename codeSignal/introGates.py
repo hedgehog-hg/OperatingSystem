@@ -6,4 +6,5 @@ def candies(n,m):
     return m//n *n
 def seatsInTheater(nCols,nRows,col,row):
     return (nCols-col+1)*(nRows-row)
-
+def maxMultiple(divisor,bound):
+    return bound//divisor*divisor
