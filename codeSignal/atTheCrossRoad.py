@@ -15,7 +15,10 @@ def extraNumber(a,b,c):
     for i in set(arr):
         if arr.count(i) == 1:
             return i
+def isInfiniteProcess(a,b):
+    return a>b or (b-a)%2 == 0
 
-print(extraNumber(2,7,2))
+print(isInfiniteProcess(2,6))
+#print(extraNumber(2,7,2))
 #print(knapsackLight(10,2,11,3,1))
 #print(reachNextLevel(10,15,5))
