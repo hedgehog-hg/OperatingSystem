@@ -17,6 +17,8 @@ def extraNumber(a,b,c):
             return i
 def isInfiniteProcess(a,b):
     return a>b or (b-a)%2 == 0
+def arithmeticExpression(a,b,c):
+    return c in [a+b,a-b,a*b,a/b]
 
 print(isInfiniteProcess(2,6))
 #print(extraNumber(2,7,2))
