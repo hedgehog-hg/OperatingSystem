@@ -19,8 +19,16 @@ def isInfiniteProcess(a,b):
     return a>b or (b-a)%2 == 0
 def arithmeticExpression(a,b,c):
     return c in [a+b,a-b,a*b,a/b]
+def tennisSet(score1,score2):
+    if score1 == score2 : return False
+    winner, loser = max(score1,score2), min(score1,score2)
+    if loser < 5 :
+        return winner == 6
+    else:
+        return winner == 7
 
-print(isInfiniteProcess(2,6))
+print(tennisSet(3,6))
+#print(isInfiniteProcess(2,6))
 #print(extraNumber(2,7,2))
 #print(knapsackLight(10,2,11,3,1))
 #print(reachNextLevel(10,15,5))
