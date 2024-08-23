@@ -28,7 +28,14 @@ def tennisSet(score1,score2):
         return winner == 7
 def willYou(young,beautiful,loved):
     return young and beautiful != loved
-
+def metroCard(lastNumberOfDays):
+    if lastNumberOfDays == 28 :
+        return [31]
+    elif lastNumberOfDays == 31 :
+        return [28,30,31]
+    else: #30
+        return [31]
+print(metroCard(30))
 #print(tennisSet(3,6))
 #print(isInfiniteProcess(2,6))
 #print(extraNumber(2,7,2))
