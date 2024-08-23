@@ -26,8 +26,10 @@ def tennisSet(score1,score2):
         return winner == 6
     else:
         return winner == 7
+def willYou(young,beautiful,loved):
+    return young and beautiful != loved
 
-print(tennisSet(3,6))
+#print(tennisSet(3,6))
 #print(isInfiniteProcess(2,6))
 #print(extraNumber(2,7,2))
 #print(knapsackLight(10,2,11,3,1))
