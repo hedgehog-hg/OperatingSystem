@@ -3,5 +3,9 @@ def killKthBit(n,k):
     return n & ~(1 << (k - 1))
 def arrayPacking(a):
     return int(''.join(list(format(n,'b').zfill(8)for n in a)[::-1]),2)
-print(arrayPacking([24,85,0]))
+def rangeBitCount(a,b):
+    return sum(bin(i).count('1') for i in range(a,b+1))
+
+print(rangeBitCount(2,7))
+#print(arrayPacking([24,85,0]))
 #print(killKthBit(37,4))
