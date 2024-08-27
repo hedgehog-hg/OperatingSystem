@@ -7,7 +7,11 @@ def rangeBitCount(a,b):
     return sum(bin(i).count('1') for i in range(a,b+1))
 def mirrorBits(a):
     return int(bin(a)[2:][::-1],2)
-print(mirrorBits(97))
+
+def secondRightmostZeroBit(n):
+    return 2**list(i for i,e in enumerate(format(n,'b')[::-1]) if e == '0')[1]
+print(secondRightmostZeroBit(37))
+#print(mirrorBits(97))
 #print(rangeBitCount(2,7))
 #print(arrayPacking([24,85,0]))
 #print(killKthBit(37,4))
