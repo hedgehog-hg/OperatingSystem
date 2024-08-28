@@ -11,8 +11,11 @@ def secondRightmostZeroBit(n):
     return 2**list(i for i,e in enumerate(format(n,'b')[::-1]) if e == '0')[1]
 def swapAdjacenctBits(n):
     return int(''.join(list(format(n,'b').zfill(32)[i:i+2][::-1] for i in range(0,33,2))),2)
+def differentRightmostBit(n,m):
+    return 2**bin(n ^ m)[::-1].index('1')
 
-print(swapAdjacenctBits(13))
+print(differentRightmostBit(7,23))
+#print(swapAdjacenctBits(13))
 #print(secondRightmostZeroBit(37))
 #print(mirrorBits(97))
 #print(rangeBitCount(2,7))
