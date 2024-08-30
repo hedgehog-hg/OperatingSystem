@@ -11,6 +11,21 @@ def countSumOfTwoRepresent(n,l,r):
 def magicalWell(a,b,n):
     print((n-1)*(a+b))
     return n*a*b + sum(range(n))*(a+b) + sum(i**2 for i in range(1,n))
+def lineup(commands):
+    l = 1
+    r = 1
+    cnt =0
+    for order in commands:
+        if order =='L':
+            l*=1
+            r*=-1
+        elif order =='R':
+            l*=-1
+            r*=1
+        if l == r : cnt+=1
 
-print(magicalWell(6,5,3))
+    return cnt
+
+print(lineup('LLARL'))
+#print(magicalWell(6,5,3))
 #print(countSumOfTwoRepresent(6,2,4))
