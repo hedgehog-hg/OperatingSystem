@@ -25,7 +25,16 @@ def lineup(commands):
         if l == r : cnt+=1
 
     return cnt
+def additionWithoutCarrying(param1,param2):
+    res =''
+    while param1 or param2 :
+        res += str(param1%10 + param2%10)[-1]
+        print(res)
+        param1 = param1//10
+        param2 = param2//10
+    return int(res[::-1]) if res else 0
 
-print(lineup('LLARL'))
+print(additionWithoutCarrying(456,1734))
+#print(lineup('LLARL'))
 #print(magicalWell(6,5,3))
 #print(countSumOfTwoRepresent(6,2,4))
