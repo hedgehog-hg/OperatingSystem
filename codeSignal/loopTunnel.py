@@ -41,8 +41,17 @@ def increaseNumberRoundness(n):
     while sn[idx]=='0':
         idx-=1
     return '0' in sn[:idx]
+def rounders(n):
+    k = len(str(n))
+    for i in range(1,k):
+        rest = n%(10**i)
+        n-= rest
+        if rest >= 5*10**(i-1) : n+=10**i
+        print(n)
+    return n
 
-print(increaseNumberRoundness(11000))
+print(rounders(1234))
+#print(increaseNumberRoundness(11000))
 #print(appleBoxes(5))
 #print(additionWithoutCarrying(456,1734))
 #print(lineup('LLARL'))
