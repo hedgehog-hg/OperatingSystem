@@ -35,8 +35,15 @@ def additionWithoutCarrying(param1,param2):
     return int(res[::-1]) if res else 0
 def appleBoxes(k):
     return sum(i**2 if i%2==0 else -1*i**2 for i in range(1,k+1) )
+def increaseNumberRoundness(n):
+    sn = str(n)
+    idx = len(sn)-1
+    while sn[idx]=='0':
+        idx-=1
+    return '0' in sn[:idx]
 
-print(appleBoxes(5))
+print(increaseNumberRoundness(11000))
+#print(appleBoxes(5))
 #print(additionWithoutCarrying(456,1734))
 #print(lineup('LLARL'))
 #print(magicalWell(6,5,3))
