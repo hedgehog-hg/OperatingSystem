@@ -49,8 +49,14 @@ def rounders(n):
         if rest >= 5*10**(i-1) : n+=10**i
         print(n)
     return n
-
-print(rounders(1234))
+def candles(candlesNumber,makeNew):
+    res=candlesNumber
+    while candlesNumber>=makeNew:
+        res+= candlesNumber//makeNew 
+        candlesNumber= candlesNumber//makeNew + candlesNumber%makeNew
+    return res
+print(candles(5,2))
+#print(rounders(1234))
 #print(increaseNumberRoundness(11000))
 #print(appleBoxes(5))
 #print(additionWithoutCarrying(456,1734))
